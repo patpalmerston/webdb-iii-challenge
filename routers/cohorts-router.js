@@ -51,6 +51,27 @@ router.post('/', (req, res) => {
     })
     .catch(err => {userError(500, 'Cohort with that ID does not exist', err)
   })
+});
+
+router.put('/:id', (req,res) => {
+  db('cohorts')
+    .where({id: req.params.id})
+    .update(req.body)
+    .then(count => {
+      if(count > 0) {
+        db('cohorts')
+          .where({id: req.params.id})
+          .first().
+          then(cohort => {
+            res.status(200).json(cohort)
+          })
+      } else {
+        res.status(404).json({ message: 'Cohort not Found' })
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err)
+    })
 })
 
 
