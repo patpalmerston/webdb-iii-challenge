@@ -36,6 +36,23 @@ router.get('/:id', (req, res) => {
     })
 });
 
+// get each student with a certain cohort id to display
+router.get('/:id/students', (req, res) => {
+  db('cohorts')
+    .innerJoin('students', 'cohorts.id', 'students.cohort_id')
+    .select('cohorts.name', 'students.name')
+    .where({cohort_id: req.params.id})
+    .then(Student => {
+      if(Student) {
+        res.status(200).json(Student)
+      } else {
+        res.status(404).json({ message: 'Student not found' })
+      }
+    }).catch(err => {
+      res.status(500).json({ message: 'Student with that ID does not Exist' })
+    })
+});
+
 router.post('/', (req, res) => {
   db('cohorts')
     .insert(req.body)
