@@ -1,0 +1,32 @@
+{
+  "name": "webdb-iii-challenge",
+  "version": "1.0.0",
+  "description": "- Databases\r - Relational Databases\r - Knex migrations.\r - Seeding data.",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "helmet": "^3.18.0",
+    "knex": "^0.16.5",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.0.7"
+  },
+  "devDependencies": {
+    "knex-cleaner": "^1.1.4"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patpalmerston/webdb-iii-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patpalmerston/webdb-iii-challenge/issues"
+  },
+  "homepage": "https://github.com/patpalmerston/webdb-iii-challenge#readme"
+}
